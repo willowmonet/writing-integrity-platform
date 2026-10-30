@@ -1,0 +1,128 @@
+{
+  "theme": "Hybrid (Light theme default for Student Focus, High-Contrast Light/Dark for Professor Dashboard)",
+  "typography": {
+    "strategy": "The 'Old Money Tech' & 'Swiss Brutalist' Hybrid",
+    "student_editor_headings": "Spectral or Cormorant Garamond (Serif, Elegant, conveys academic authority)",
+    "student_editor_body": "Source Serif Pro or IBM Plex Serif (High legibility, traditional document feel)",
+    "ui_headings_professor": "Cabinet Grotesk (Sharp, authoritative, technical for dashboard density)",
+    "ui_body": "IBM Plex Sans (Clean, tabular numbers, perfect for dashboard readability)",
+    "rules": [
+      "NO Inter for headings. Banned fonts: Space Grotesk.",
+      "Tight letter spacing for Headings (tracking-tight or tracking-tighter).",
+      "Overlines / Labels / Column Headers MUST be Uppercase + Wide Spacing (tracking-[0.2em])."
+    ]
+  },
+  "colors": {
+    "student_space": {
+      "archetype": "Organic & Earthy (Calm, Focused, Low-Anxiety)",
+      "background": "#F9F9F8 (Warm paper-like off-white for the editor container)",
+      "surface": "#FFFFFF (Pure white editor canvas with soft drop shadow)",
+      "ai_accent": "#0F4C5C (Deep Teal - trustworthy AI, calm tone)",
+      "ai_highlight": "#E0F2F1 (Subtle mint for indicating AI-sourced text)"
+    },
+    "professor_dashboard": {
+      "archetype": "Swiss & High-Contrast (Data-dense, Authoritative, Urgent)",
+      "background": "#F1F5F9 (Cool neutral grey to make white widgets pop)",
+      "surface": "#FFFFFF",
+      "primary": "#0A2463 (Sapphire Blue for primary actions)",
+      "alert_critical": "#D90429 (Signal Red for high-confidence AI pastes / Flags)",
+      "alert_warning": "#F59E0B (Amber for tab-switching or keystroke anomalies)",
+      "forbidden": ["#7351B7", "#1B93A4"]
+    },
+    "rules": [
+      "Never use pure #000000 or #808080. Always tint greys with a subtle blue or orange.",
+      "Ensure text meets APCA standards. Use text shadow if placing text over images.",
+      "ALWAYS explicitly set text color on hover. Focus states must have HIGHER contrast."
+    ]
+  },
+  "visual_enhancers": {
+    "surfaces": [
+      {
+        "name": "Crystal Glassmorphism",
+        "usage": "Student AI Sidebar (when overlapping content) & Floating Toolbars",
+        "classes": "bg-white/80 backdrop-blur-xl border border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+      },
+      {
+        "name": "Technical Grid Borders",
+        "usage": "Professor Dashboard Metrics & Flag Data Tables",
+        "classes": "border-collapse border-r border-b border-border/40 (expose the skeleton of the layout)"
+      }
+    ]
+  },
+  "layouts": {
+    "student_view": {
+      "type": "Asymmetric Split-Pane (The Grammarly Vibe)",
+      "description": "Distraction-free editor on the left (70%), Course-Scoped AI sidebar on the right (30%).",
+      "grid_classes": "grid grid-cols-1 lg:grid-cols-12 gap-0 h-screen overflow-hidden",
+      "editor_span": "lg:col-span-8 xl:col-span-9 flex justify-center overflow-y-auto bg-[#F9F9F8] py-20",
+      "ai_span": "lg:col-span-4 xl:col-span-3 border-l border-border bg-white shadow-[-4px_0_24px_rgba(0,0,0,0.02)] relative z-10"
+    },
+    "professor_dashboard": {
+      "type": "High-Density Bento Grid (Mode B)",
+      "description": "Dense data tracking for student integrity, flags, and monitoring. Left side-nav, right dense grid.",
+      "grid_classes": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-8",
+      "widget_spans": {
+        "kpi_summary": "col-span-1",
+        "flag_inbox_table": "col-span-2 row-span-2 or col-span-3",
+        "activity_timeline": "col-span-1 row-span-2"
+      }
+    }
+  },
+  "components": {
+    "strategy": "Hybrid",
+    "student_editor": "Use a minimal HTML/Tailwind contenteditable div or lightweight rich text wrapper. Include a minimal contextual floating toolbar (slash command or pop-up on highlight) to keep the canvas clean.",
+    "professor_dashboard": "Use Shadcn/UI for Data Tables, Tabs, Select (Strictness level), and Badges (Alerts).",
+    "charts": "Shadcn chart components (Recharts) for keystroke/paste timeline monitoring.",
+    "toasts": "Use Sonner for toast notifications (e.g., flag resolved, AI usage declaration sent)."
+  },
+  "motion": {
+    "rules": [
+      "Smooth slide-in for the AI Sidebar (Framer Motion).",
+      "Subtle highlight fade-in for flagged pasted text.",
+      "Sonner for Toast notifications (successful submission, AI usage declaration sent).",
+      "Disable transforms in universal transitions; apply specifically to interactive elements."
+    ]
+  },
+  "accessibility": {
+    "testing": "All interactive elements MUST include data-testid (e.g., data-testid='submit-assignment-btn', data-testid='resolve-flag-btn').",
+    "contrast": "APCA contrast ratio focus. Explicit hover/focus states for all buttons."
+  },
+  "image_urls": {
+    "student_auth_bg": {
+      "url": "https://images.unsplash.com/photo-1741699428220-65f37f3fbbcb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwyfHx1bml2ZXJzaXR5JTIwc3R1ZGVudCUyMHN0dWR5aW5nJTIwY2FsbXxlbnwwfHx8fDE3OTAxNzI5MTB8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Calm student studying at a library, useful for the Student Login / Auth page background.",
+      "category": "Authentication / Landing"
+    },
+    "professor_auth_bg": {
+      "url": "https://images.pexels.com/photos/771317/pexels-photo-771317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Concentrated study/review environment, useful for the Professor Dashboard Login.",
+      "category": "Authentication / Professor Portal"
+    },
+    "abstract_network": {
+      "url": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhdGElMjBuZXR3b3JrJTIwbm9kZXxlbnwwfHx8fDE3OTAxNzI5MTB8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract data nodes, good for 'Monitoring Setup' or 'Course Material AI Context' empty states.",
+      "category": "Empty States / Configuration"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Implement Google Login for school emails as the primary authentication method on the entry page.",
+    "Build the Student Editor to feel like a premium writing tool (Grammarly/Notion). Center the document context block (e.g., max-w-3xl) to maintain a readable line length.",
+    "Implement the 'Course-Scoped AI' as a sticky right-side panel that answers strictly from uploaded context. Include an 'Ask the Teacher' thread fallback within the AI UI.",
+    "For the Professor Dashboard, utilize dense Shadcn tables to list 'Flags' (pastes, tab switches, high-AI likelihood) with progressive disclosure (drawer/modal to view details).",
+    "Include an 'Inbox' on the Student side for them to submit 'AI-usage statements/explanations' for flagged items.",
+    "Professor Course Setup must have distinct sections for uploading PDFs/Text for AI context and a slider/select for monitoring strictness.",
+    "Do NOT use HTML <input type='date'> or <select>. Use Shadcn UI equivalents.",
+    "Use Lucide-React or Phosphor Icons. NEVER use emoji placeholders."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) where appropriate, BUT NEVER use a fully transparent background over content.",
+    "You MUST NOT apply universal transition (e.g., transition: all). Apply them specifically to interactive properties.",
+    "You MUST NOT center align the app container (.App { text-align: center; } is forbidden). Optical left-alignment preferred.",
+    "Always use modern button styles (pill-shaped or crisp rectangles) with interaction animations.",
+    "NEVER use placeholder URLs or AI assistant Emoji characters (🤖🧠💭💡) for icons.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Include a `data-testid` attribute on all key interactive elements.",
+    "Provide clear empty states with actionable guidance."
+  ]
+}
